@@ -55,15 +55,6 @@ class List
       _next.prev = prev
     end
 
-  	# if p.nil? && n then #delete head
-  	#   @nodes[n].prev = nil
-  	# elsif p && n.nil? then #delete tail
-  	#   @nodes[p].next = nil
-  	# else
-  	#   @nodes[n].prev = prev
-  	#   @nodes[p].next = _next
-  	# end
-  	# @nodes[c].prev, @nodes[c].data, @nodes[c].next = nil, nil, nil
   	return nil
   end
 
@@ -73,7 +64,7 @@ class List
   end
 
   def values(n=nil)
-  	return @head.nodes()
+    @head ? ( return @head.nodes() ) : []
   end
 
   private
@@ -82,11 +73,10 @@ class List
     if @head then
       current = @head
       while current.next do
-        _next = current.next
-        find ? ((current.data == find) ? (return current) : 
-          ( (_next.data == find) ? (return _next) : nil ) ) : nil
+        find ? ( (current.data == find) ? (return current) : nil ): nil
         current = current.next
       end
+      find ? ( (current.data == find) ? (return current) : nil ) : nil
       return (find ? nil : current)
     else
       return nil
@@ -94,3 +84,14 @@ class List
   end
 
 end
+
+# l = List.new
+# l.add('a')
+# p l.find('a')
+# p l.values()
+# l.delete(l.find('a'))
+# p l.find('a')
+# p l.values()
+# l.add('b')
+# p l.find('b')
+# p l.values()

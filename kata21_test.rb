@@ -35,14 +35,19 @@ describe 'List' do
   	assert_equal(["fred", "wilma", "betty"], list.values())
   end	
   
- #  it 'can delete head' do  
- #    list.delete(list.find("fred"))
-	# assert_equal(["betty"], list.values())
- #  end
+  it 'can delete head' do
+    list = List.new
+    list.add("fred")
+    list.add("betty")
+    list.delete(list.find("fred"))
+   	assert_equal(["betty"], list.values())
+  end
 
- #  it 'can delete the last node' do
-	# list.delete(list.find("betty"))
-	# assert_equal([], list.values()) 
- #  end
+  it 'can delete the last node' do
+	  list = List.new
+    list.add("betty")
+    list.delete(list.find("betty"))
+	  assert_equal([], list.values()) 
+  end
 
 end
