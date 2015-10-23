@@ -30,7 +30,7 @@ class Node
 end
 
 class List
-  attr_accessor :nodes, :head
+  attr_accessor :head
 
   def initialize(data=nil)
     @head = Node.new(data) if data
